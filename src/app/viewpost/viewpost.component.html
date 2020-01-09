@@ -1,0 +1,38 @@
+<div class="text-right" id="pop">
+<div class=" btn-group" >
+       <i  class='fas fa-user-circle py-2 mx-3 fx-5x' style="cursor: pointer;" routerLink="/profile">Profile</i>
+       <i   class='fas fa-arrow-left py-2 mx-3 fx-5x' style="cursor: pointer;"  routerLink="/home">Back</i>
+       <i  class='fas fa-sign-out-alt py-2 mx-3 fx-5x' style="cursor: pointer;" (click)="onLogout">Logout</i>  
+</div>
+</div>
+<br>
+<h3 class="card-header w-100 text-center" style="background-color:blueviolet;">Post details</h3>
+<div class="card w-100"id="show">
+</div><br>
+<div class="container">
+    <div class="row">
+        <div class="col">
+                <div>
+                   <!-- <button class="btn btn-success"type="submit" data-toggle="collapse" data-target="#comment" aria-expanded="false" aria-controls="text" (click)="comments()">Comments</button>-->
+                   <div *ngIf=comments()>No comments yet</div> 
+                   <div class="card w-25" id="view" *ngFor="let item of viewPost"><b>
+                        {{item.text}}
+                            <i  ng-show="my" class='fas fa-trash py-2 mx-3 fx-5x d-flex justify-content-end' style="cursor: pointer;" (click)="deleteComment(item)"></i>
+                       </b><br>
+                       Commented by:
+                        {{item.commentBy.username}}
+                    </div>
+                    <button class="btn btn-primary"type="submit" data-toggle="collapse" data-target="#text" aria-expanded="false" aria-controls="text">Add Comment</button>
+                </div>
+        </div>
+    </div>
+</div>
+<div class="collapse" id="text">
+    <form #form="ngForm" (ngSubmit)="postReply(form)">
+                <div id="reset" class="card w-50">
+                 <textarea style="background-color:pink;color:green" [(ngModel)]="Content" name="Content" id="reply" cols="50" rows="5" ></textarea>
+                </div>
+                 <button class="btn btn-primary mx-auto" type="submit">Submit</button>
+        </form>
+  
+</div>

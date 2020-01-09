@@ -1,0 +1,64 @@
+
+<!--<nav class="navbar navbar-expand bg-light text-right"></nav>
+Links
+    
+    <ul class="navbar-nav">
+      <li class="nav-item px-1">
+        <button type="submit" class="btn btn-primary " routerlink="/createpost">Create Post</button>
+      </li>
+      <li class="nav-item px-1">
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Profile</button>
+      </li>
+      <li class="nav-item">
+        <button type="submit" class="btn btn-primary" (click)="onLogout()">Logout</button>
+      </li>
+</ul>
+  </nav>-->
+  <section class="bg-light">
+  <div class="container-fluid">
+    <div class="row bg-dark">
+      <div class="col md-2">
+          <div class="d-flex justify-content-end text-white " id="pop">
+              <i  class='fas fa-edit py-2 mx-3 fx-5x' style="cursor: pointer;" routerLink="/createpost">Createpost</i>
+              <i  class='fas fa-file-alt py-2 mx-3 fx-5x'  style="cursor: pointer;" routerLink="/myposts">My posts</i>
+             <i   class='fas fa-user-circle py-2 mx-3 fx-5x' style="cursor: pointer;" routerLink="/profile">Profile</i>
+             <i   class='fas fa-sign-out-alt py-2 mx-3 fx-5x'  style="cursor: pointer;" (click)="onLogout()">Logout</i>  
+          
+            </div>
+
+      </div>
+    </div>
+ </div>
+ <h1 id="user" class="text-danger"></h1><br>
+<div class="jumbotron">
+        <div class="container-fluid"> 
+                <div ng-controller="getPost">
+                        <table class="table table-bordered">
+                          <thead>
+                          <tr>
+                              <th>PostId</th>
+                              <th>Title</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                        <tr *ngFor="let item of post">
+                                <td id='get'>{{item.postId}}</td>
+                                <!--<td>{{item.postId}}</td>-->
+                                <td><a style="cursor: pointer;" (click)="viewPost(item)">{{item.title}}</a></td>
+                                <!--<td><input type="button" value="show" (click)="viewPost(item)"/></td>-->
+                                <!--<td><button class="btn btn-primary" ng-click="edit(item)">Edit</button></td>-->
+                        </tr>
+                        </tbody>
+                </table>
+            </div>
+            <a  href="/home" >
+                    <span >Back to top</span>
+             </a>
+            <div class="row">
+                <div class="col-sm-8 offset-sm-2">
+                   <!-- <router-outlet></router-outlet>-->
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>

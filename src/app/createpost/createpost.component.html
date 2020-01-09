@@ -1,0 +1,24 @@
+
+ <h1 style=text-align:center>Create Post</h1>  
+<form  class="border border-light p-5" [formGroup]="PostForm" (ngSubmit)="onSubmit()">
+    
+   <div class="form-group" [ngClass]="{'has-error': invalidId()}">
+            <label for="PostId" class="control-label">Post-ID</label>
+            <input type="text" formControlName="PostId" class="form-control" id="PostId" name="PostId" placeholder="Enter Id"/>
+            <p *ngIf= "invalidId()" class="text-danger">{{this.serviceErrors.PostId || 'Invalid PostId'}}</p>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': invalidTitle()}">
+            <label for="Title"  class="control-label">Title</label>
+            <input type="Title" formControlName="Title" class="form-control" id="Title" name="Title" placeholder="Enter Title" />
+            <p *ngIf="invalidTitle()" class="text-danger" >{{this.serviceErrors.Title || 'Invalid Title'}}</p>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': invalidContent()}">
+            <label for="Content"  class="control-label">Write Your Content:</label>
+            <textarea style="background-color:pink;color:green" formControlName="Content" class="form-control" id="form-control" cols="80" rows="10"></textarea>
+            <p *ngIf= "invalidContent()" class="text-danger">{{this.serviceErrors.Content || 'Invalid Content'}}</p>
+        </div>
+        <div  class="form-group has-error">
+                <button type="submit" class="btn btn-success" >Add</button>
+                <button style=content:right type="reset" class="btn btn-danger" >Clear</button>
+        </div>
+</form>
